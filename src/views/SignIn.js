@@ -7,8 +7,12 @@ export default function SignIn() {
   const [password, setPassword] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const resp = await signInUser(email, password);
-    console.log(resp);
+    try {
+      const resp = await signInUser(email, password);
+      console.log(resp);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>

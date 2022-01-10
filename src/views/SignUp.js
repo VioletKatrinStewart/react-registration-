@@ -8,7 +8,6 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const resp = await signUpUser(email, password);
-    console.log(resp);
   };
   return (
     <div>
