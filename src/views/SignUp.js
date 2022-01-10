@@ -3,8 +3,8 @@ import AuthForm from '../components/AuthForm';
 import { signUpUser } from '../services/users';
 
 export default function SignUp() {
-  [email, setEmail] = useState('');
-  [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
     const resp = await signUpUser(email, password);

@@ -3,8 +3,8 @@ import AuthForm from '../components/AuthForm';
 import { signInUser } from '../services/users';
 
 export default function SignIn() {
-  [email, setEmail] = useState('');
-  [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
     const resp = await signInUser(email, password);
@@ -12,6 +12,7 @@ export default function SignIn() {
   };
   return (
     <div>
+      <h1>hello</h1>
       <AuthForm
         email={email}
         setEmail={setEmail}
