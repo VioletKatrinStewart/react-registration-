@@ -9,7 +9,7 @@ export default function AuthForm({
   handleSubmit,
 }) {
   return (
-    <Form className="form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <p>{errorMessage}</p>
       <div className="form-controls">
         <label>Email:</label>
@@ -20,6 +20,6 @@ export default function AuthForm({
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       <input type="submit" />
-    </Form>
+    </form>
   );
 }
