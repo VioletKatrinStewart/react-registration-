@@ -7,7 +7,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const resp = await signUpUser(email, password);
+    await signUpUser(email, password);
   };
   return (
     <div>

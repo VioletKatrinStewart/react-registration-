@@ -1,28 +1,27 @@
 import './App.css';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
-import { getUser } from './services/users';
-import SignIn from './views/SignIn';
-import SignUp from './views/SignUp';
+import { getUser, logout } from './services/users';
+import Auth from './views/Auth';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
-  console.log(currentUser);
+  const logoutUser = async () => {
+    await logout();
+    setCurrentUser(null);
+  };
   return (
     <div className="App">
       <BrowserRouter>
-        <NavLink to="/signin"> Sign In </NavLink>
-        <NavLink to="/signup"> Sign Up </NavLink>
         <Switch>
-          <Route path="/" exact>
-            {currentUser && <h1>I am signed in</h1>}
-            {!currentUser && <h1>I am NOT signed in</h1>}
-          </Route>
-          <Route exact path="/signin">
-            <SignIn />
-          </Route>
-          <Route exact path="/signup">
-            <SignUp />
+          <Route exact path="/">
+            {currentUser && (
+              <>
+                <h1>I am Signed In</h1>
+                <button onClick={logoutUser}>Log Out</button>
+              </>
+            )}
+            {!currentUser && <Auth setCurrentUser={setCurrentUser} />}
           </Route>
         </Switch>
       </BrowserRouter>

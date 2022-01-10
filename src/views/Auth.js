@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { signInUser, signupUser } from '../../services/users';
-import AuthForm from '../../components/Auth/AuthForm';
-import './Auth.css';
+import { signInUser, signUpUser } from '../services/users';
+import AuthForm from '../components/AuthForm';
 import classNames from 'classnames';
-import { signUpUser } from '../services/users';
+import './Auth.css';
 
 export default function Auth({ setCurrentUser }) {
   const [type, setType] = useState('signin');
@@ -22,7 +21,6 @@ export default function Auth({ setCurrentUser }) {
         resp = await signUpUser(email, password);
       }
       setCurrentUser(resp);
-      console.log(resp);
     } catch {
       setErrorMessage('Something went wrong. Please try again.');
     }
