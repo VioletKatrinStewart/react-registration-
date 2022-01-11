@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { getUser, logout } from './services/users';
 import Auth from './views/Auth';
+import frog from './frog.jpeg';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
@@ -18,6 +19,7 @@ function App() {
             {currentUser && (
               <>
                 <h1>I am Signed In</h1>
+                <img src={frog} alt="frog" />
                 <button onClick={logoutUser}>Log Out</button>
               </>
             )}
